@@ -1,0 +1,170 @@
+<script src="//cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.2/p5.js"></script>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<title>Pointillism \ Examples \ Processing.org</title>
+		
+		<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+		
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="Author" content="Processing Foundation" />
+		<meta name="Publisher" content="Processing Foundation" />
+		<meta name="Keywords" content="Processing, Sketchbook, Programming, Coding, Code, Art, Design" />
+		<meta name="Description" content="Processing is a flexible software sketchbook and a language for learning how to code within the context of the visual arts. Since 2001, Processing has promoted software literacy within the visual arts and visual literacy within technology." />
+		<meta name="Copyright" content="All contents copyright the Processing Foundation, Ben Fry, Casey Reas, and the MIT Media Laboratory" />
+	    
+	    <script src="../javascript/modernizr-2.6.2.touch.js" type="text/javascript"></script>
+		<link href="../css/style.css" rel="stylesheet" type="text/css" />
+	</head>
+	<body id="Examples" onload="" >
+		
+		<!-- ==================================== PAGE ============================ --> 
+			
+			
+
+
+			<!-- ==================================== CONTENT ============================ -->
+			<div class="content">
+			
+			 
+<div class="examples-nav"><a href="/examples/"><img src="/img/back_off.gif" alt="Back to List" /> <span class="back-to">Back To List</span></a>
+</div>
+
+
+<script src="../javascript/p5.min.js" type="text/javascript"></script>
+<script src="../javascript/p5.dom.min.js" type="text/javascript"></script>
+
+
+<div class="example">
+<div id="p5container"></div><script type="text/javascript">/**
+ * Pointillism
+ * by Richard Campanha
+ * Inspired by Daniel Shiffman. 
+ * 
+ * Mouse horizontal location controls size of dots. 
+ * Creates a simple pointillist effect using ellipses colored
+ * according to pixels in an image. 
+ */
+ 
+// The next line is needed if running in JavaScript Mode with Processing.js
+/* @pjs preload="moonwalk.jpg"; */ 
+
+var currentImg;  
+var img1;      
+var img2;
+var img3;    
+var img4;
+// var img5;
+var myImageNumber = 0; 
+var timer,counter;
+var millisecond = millis();
+
+function preload(){
+	img1=loadImage("Gaze.PNG");
+	img2=loadImage("Interstellar.PNG");
+	img3=loadImage("Uprising.PNG");
+	img4=loadImage("E2H.PNG");	
+}
+
+function setup(){
+	var canvas  = createCanvas(845,470);
+	canvas.parent("p5container");
+	currentImg=img1;   
+	imageMode(CENTER);
+	noStroke();
+	background(0);
+	frameRate(500);
+}
+
+
+function draw(){
+	var point = randomGaussian()*8;
+	var x = int(random(currentImg.width));
+	var y = int(random(currentImg.height)) ;
+	var  pix = currentImg.get(x, y);
+	fill(pix[0],pix[1],pix[2], 128);
+	ellipse(x, y, point, point);
+//If no input within 1.5 minutes randomly choose one of the 5 images.
+	// if (millisecond - timer >= 240000) { 
+		// var myImageNumber = int(random(1,5));
+		// switch (myImageNumber) {
+		// 	case 0:
+		// 		currentImg=img1;
+		// 		println("image 1");
+		// 		break; 
+
+	// 		case 1:
+	// 			currentImg=img2;
+	// 			println("image 2");
+	// 			break; 
+
+	// 		case 2: 
+	// 			currentImg=img3;
+	// 			println("image 3");
+	// 			break;
+
+	// 		case 3: 
+	// 			currentImg=img4;
+	// 			println("image 4");
+	// 			break;
+
+	// 		// case 4: 
+	// 		// 	currentImg=img5;
+	// 		// 	println("image 5");
+	// 		// 	break;   
+	// } // switch 
+
+	// //println(currentImg,myImageNumber,timer);
+	// //timer = millis();
+	// }
+
+	 // keyPressed() {
+	// // set the current image number
+	// if (keyCode == LEFT) {
+	// 	myImageNumber--; 
+	// 	if (myImageNumber<0){
+	// 		myImageNumber=0; // minimum value 
+	// 		}
+	// }
+	
+	// if (keyCode == RIGHT) {
+	// 	myImageNumber++;
+	// 	if (myImageNumber>4){
+	// 		myImageNumber=4; 
+	// 		} // maximum value 
+	// }
+
+	// // use the current image number
+	// // to set the current image (it gets displayed)
+	// switch (myImageNumber) {
+	// 	case 0:
+	// 		currentImg=img1;
+	// 		println("image 1");
+	// 	break; 
+
+	// 	case 1:
+	// 		currentImg=img2;
+	// 		println("image 2");
+	// 	break; 
+
+	// 	case 2: 
+	// 		currentImg=img3;
+	// 		println("image 3");
+	// 	break;
+
+	// 	case 3: 
+	// 		currentImg=img4;
+	// 		println("image 4");
+	// 	break;
+
+	// 	// case 4: 
+	// 	// 	currentImg=img5;
+	// 	// 	println("image 5");
+	// 	// break;   
+	// } // switch 
+
+}
+</script>
+
+	</body>
+</html>
